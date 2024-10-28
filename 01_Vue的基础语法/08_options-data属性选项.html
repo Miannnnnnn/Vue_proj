@@ -1,0 +1,38 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <h2>{{message}}</h2>
+        <button @click="changeMessage">改变message</button>
+    </div>
+
+
+    <script src="./lib/Vue.js"></script>
+    <script>
+        const app = Vue.createApp({
+            // data: options api
+            data: function () {
+                return {
+                    message: "Hello Data"
+                }
+            },
+            // methods: options api
+            methods: {
+                changeMessage: function () {
+                    this.message = "你好，世界"
+                }
+            }
+        })
+
+        app.mount("#app")
+    </script>
+</body>
+
+</html>
