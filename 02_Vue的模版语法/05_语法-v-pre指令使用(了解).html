@@ -9,10 +9,14 @@
 <body>
 
     <div id="app">
-        <h2>{{ message }}</h2>
+        <div v-pre>
+            <h2>{{ message }}</h2>
+            <p>当前计数：{{ counter }}</p>
+            <p>{{}}</p>
+        </div>
     </div>
 
-    <script src="./lib/Vue.js"></script>
+    <script src="../lib/Vue.js"></script>
     <script>
         // 1.创建app
         const app = Vue.createApp({
@@ -20,6 +24,7 @@
             data: function () {
                 return {
                     message: "Hello World",
+                    counter: 0
                 };
             },
         })
