@@ -1,0 +1,77 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .product {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <home-nav></home-nav>
+        <product-item></product-item>
+        <product-item></product-item>
+        <product-item></product-item>
+    </div>
+
+    <template id="nav">
+        <div>—————————————————————————————— nav start ——————————————————————————————</div>
+        <h2>我是应用程序的导航</h2>
+        <product-item></product-item>
+        <div>—————————————————————————————— nav end ——————————————————————————————</div>
+    </template>
+
+    <template id="product">
+        <div class="product">
+            <h2>{{ title }}</h2>
+            <p>商品描述，限制折扣，赶紧抢购</p>
+            <p>价格：{{ price }}</p>
+            <button @click="favarItem">收藏</button>
+        </div>
+    </template>
+
+    <script src="../lib/Vue.js"></script>
+    <script>
+        // 1.创建app
+        const app = Vue.createApp({
+            // data: option api
+            data() {
+                return {
+                    message: "Hello World",
+                };
+            },
+        })
+
+        // 2.注册全局组件
+        // 全局组件的特点，一旦注册之后，可以在全局的任意地方使用
+        app.component("product-item", {
+            template: "#product",
+            data() {
+                return {
+                    title: "我是商品的title",
+                    price: 9.9
+                }
+            },
+            methods: {
+                favarItem() {
+                    console.log("收藏当前的item")
+                }
+            }
+        })
+
+        app.component("home-nav", {
+            template: "#nav"
+        })
+
+        // 2.挂载app
+        app.mount("#app")
+    </script>
+</body>
+
+</html>
