@@ -4,7 +4,10 @@
              <div class="tab-control-item" 
              :class="{ active: index === currentIndex}"
              @click="itemClick(index)">
-                {{ item }}</div>
+                <slot :item="item">
+                    <span>{{ item }}</span>
+                </slot>
+            </div>
         </template>
 
     </div>
@@ -24,10 +27,12 @@
                 currentIndex: 0
             }
         },
+        emits: ["tabItemClick"],
         methods: {
             itemClick(index) {
                 this.currentIndex = index
                 console.log(this.currentIndex)
+                this.$emit("tabItemClick", index)
             }
         }
     }
@@ -47,5 +52,9 @@
     .tab-control-item.active {
         color: red;
         font-weight: 700;
+    }
+    .tab-control-item.active span{
+        border-bottom: 3px solid red;
+        padding: 8px;
     }
 </style>
