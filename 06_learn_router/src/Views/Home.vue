@@ -5,13 +5,17 @@
       <router-link to="/home/recommend">推荐</router-link>
       <router-link to="/home/ranking">排行</router-link>
     </div>
+    <button @click="logoutClick">退出登录</button>
+
     <router-view></router-view>
   </div>
 </template>
 
 
 <script setup>
-
+function logoutClick () {
+  localStorage.removeItem("token")
+}
 </script>
 
 <style scoped></style>

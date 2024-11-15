@@ -10,6 +10,8 @@
       <router-link to="/user/123">用户123</router-link>
       <router-link to="/user/321">用户321</router-link>
 
+      <router-link to="/order">订单</router-link>
+
       <!-- 其他元素跳转 -->
       <span @click="homeSpanClick">首页</span>
       <button @click="aboutBtnClick">关于</button>
